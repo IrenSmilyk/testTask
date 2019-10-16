@@ -8,11 +8,12 @@ public abstract class Shape {
     }
 
     public abstract void draw();
+
     public abstract float area();
+
     public abstract ColorEnum getColor();
 
-    @Override
-    public String toString() {
-        return "Shape:" ;
-    }
+    public abstract float perimeter();
+
+
 }

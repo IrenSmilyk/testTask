@@ -2,44 +2,44 @@ package com.it;
 
 public class Circle extends Shape {
     private float radius;
-    public static final float PI=3.1415F;
+    private static final float PI = 3.1415F;
 
-    public Circle(float radius, ColorEnum color) {
+    Circle(float radius, ColorEnum color) {
         super(color);
         this.radius = radius;
     }
 
     @Override
     public void draw() {
-        System.out.println("This is a circle");
+        System.out.println("This is a draw method for Circle");
     }
 
     @Override
     public float area() {
-        return radius*radius*PI;
+        return radius * radius * PI;
     }
 
     @Override
     public ColorEnum getColor() {
-     return color;
+        return color;
     }
 
-    float perimeter(){
-        return 2*PI*radius;
+    @Override
+    public float perimeter() {
+        return 2 * PI * radius;
     }
 
-    float getRadius() {
+    public float getRadius() {
         return radius;
     }
 
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                ", color=" + color +
-                '}';
+        return String.format("Shape: Circle, area: %.2f sq.unit, radius: %.2f unit, color: %s, perimeter: %.2f", area(), getRadius(), color, perimeter());
     }
-
 
 }
