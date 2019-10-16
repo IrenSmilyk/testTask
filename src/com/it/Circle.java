@@ -1,10 +1,13 @@
 package com.it;
 
 public class Circle extends Shape {
-    private float radius;
-    private static final float PI = 3.1415F;
+    private double radius;
+    private static final double PI = 3.1415;
 
-    Circle(float radius, ColorEnum color) {
+    public Circle() {
+    }
+
+    Circle(double radius, ColorEnum color) {
         super(color);
         this.radius = radius;
     }
@@ -15,7 +18,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public float area() {
+    public double area() {
         return radius * radius * PI;
     }
 
@@ -25,15 +28,15 @@ public class Circle extends Shape {
     }
 
     @Override
-    public float perimeter() {
+    public double perimeter() {
         return 2 * PI * radius;
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public void setRadius(float radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 

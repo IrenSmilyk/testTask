@@ -2,10 +2,12 @@ package com.it;
 
 public class Foursquare extends Shape {
 
-    private float sideA;
+    private double sideA;
 
+    public Foursquare() {
+    }
 
-    public Foursquare(float sideA, ColorEnum color) {
+    public Foursquare(double sideA, ColorEnum color) {
         super(color);
         this.sideA = sideA;
     }
@@ -16,7 +18,7 @@ public class Foursquare extends Shape {
     }
 
     @Override
-    public float area() {
+    public double area() {
         return sideA * sideA;
     }
 
@@ -25,20 +27,20 @@ public class Foursquare extends Shape {
         return color;
     }
 
-    public float getSideA() {
+    public double getSideA() {
         return sideA;
     }
 
-    public void setSideA(float sideA) {
+    public void setSideA(double sideA) {
         this.sideA = sideA;
     }
 
     @Override
-    public float perimeter() {
+    public double perimeter() {
         return 4 * sideA;
     }
 
-    public float getDiagonal() {
+    public double getDiagonal() {
         return sideA * (float) (Math.sqrt(2));
     }
 

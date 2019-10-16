@@ -1,13 +1,16 @@
 package com.it;
 
 public class Trapeze extends Shape {
-    private float trapezoidBaseA;
-    private float trapezoidBaseB;
-    private float trapezoidHeight;
-    private float sideA;
-    private float sideB;
+    private double trapezoidBaseA;
+    private double trapezoidBaseB;
+    private double trapezoidHeight;
+    private double sideA;
+    private double sideB;
 
-    public Trapeze(float trapezoidBaseA, float trapezoidBaseB, float trapezoidHeight, float sideA, float sideB, ColorEnum color) {
+    public Trapeze() {
+    }
+
+    public Trapeze(double trapezoidBaseA, double trapezoidBaseB, double trapezoidHeight, double sideA, double sideB, ColorEnum color) {
         super(color);
         this.trapezoidBaseA = trapezoidBaseA;
         this.trapezoidBaseB = trapezoidBaseB;
@@ -16,43 +19,43 @@ public class Trapeze extends Shape {
         this.sideB = sideB;
     }
 
-    public float getTrapezoidBaseA() {
+    public double getTrapezoidBaseA() {
         return trapezoidBaseA;
     }
 
-    public void setTrapezoidBaseA(float trapezoidBaseA) {
+    public void setTrapezoidBaseA(double trapezoidBaseA) {
         this.trapezoidBaseA = trapezoidBaseA;
     }
 
-    public float getTrapezoidBaseB() {
+    public double getTrapezoidBaseB() {
         return trapezoidBaseB;
     }
 
-    public void setTrapezoidBaseB(float trapezoidBaseB) {
+    public void setTrapezoidBaseB(double trapezoidBaseB) {
         this.trapezoidBaseB = trapezoidBaseB;
     }
 
-    public float getTrapezoidHeight() {
+    public double getTrapezoidHeight() {
         return trapezoidHeight;
     }
 
-    public void setTrapezoidHeight(float trapezoidHeight) {
+    public void setTrapezoidHeight(double trapezoidHeight) {
         this.trapezoidHeight = trapezoidHeight;
     }
 
-    public float getSideA() {
+    public double getSideA() {
         return sideA;
     }
 
-    public void setSideA(float sideA) {
+    public void setSideA(double sideA) {
         this.sideA = sideA;
     }
 
-    public float getSideB() {
+    public double getSideB() {
         return sideB;
     }
 
-    public void setSideB(float sideB) {
+    public void setSideB(double sideB) {
         this.sideB = sideB;
     }
 
@@ -62,7 +65,7 @@ public class Trapeze extends Shape {
     }
 
     @Override
-    public float area() {
+    public double area() {
         return 0.5f * (trapezoidBaseA + trapezoidBaseB) * trapezoidHeight;
     }
 
@@ -72,8 +75,14 @@ public class Trapeze extends Shape {
     }
 
     @Override
-    public float perimeter() {
+    public double perimeter() {
         return trapezoidBaseA + trapezoidBaseB + sideA + sideB;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Shape: Trapeze, area: %.2f sq.unit, sideA: %.2f unit, sideB: %.2f unit, trapezoid baseB: %.2f unit," +
+                " trapezoid baseA: %.2f unit, color: %s, perimeter: %.2f, trapezoid height: %.2f", area(), getSideA(), getSideB(),
+                getTrapezoidBaseA(), getTrapezoidBaseB(), color, perimeter(), getTrapezoidHeight());
+    }
 }

@@ -1,50 +1,51 @@
 package com.it;
 
 public class Triangle extends Shape {
-    private float triangleBase;
-    private float triangleHeight;
-    private float sideA;
-    private float sideB;
+    private double triangleBase;
+    private double triangleHeight;
+    private double sideA;
+    private double sideB;
 
+    public Triangle() {
+    }
 
-    public Triangle(float triangleBase, float triangleHeight, float sideA, float sideB, ColorEnum color) {
+    public Triangle(double triangleBase, double triangleHeight, double sideA, double sideB, ColorEnum color) {
         super(color);
         this.triangleBase = triangleBase;
         this.triangleHeight = triangleHeight;
         this.sideA = sideA;
         this.sideB = sideB;
-
     }
 
-    public float getTriangleBase() {
+    public double getTriangleBase() {
         return triangleBase;
     }
 
-    public void setTriangleBase(float triangleBase) {
+    public void setTriangleBase(double triangleBase) {
         this.triangleBase = triangleBase;
     }
 
-    public float getTriangleHeight() {
+    public double getTriangleHeight() {
         return triangleHeight;
     }
 
-    public void setTriangleHeight(float triangleHeight) {
+    public void setTriangleHeight(double triangleHeight) {
         this.triangleHeight = triangleHeight;
     }
 
-    public float getSideA() {
+    public double getSideA() {
         return sideA;
     }
 
-    public void setSideA(float sideA) {
+    public void setSideA(double sideA) {
         this.sideA = sideA;
     }
 
-    public float getSideB() {
+    public double getSideB() {
         return sideB;
     }
 
-    public void setSideB(float sideB) {
+    public void setSideB(double sideB) {
         this.sideB = sideB;
     }
 
@@ -55,7 +56,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public float area() {
+    public double area() {
         return 0.5f*triangleBase*triangleHeight;
     }
 
@@ -65,7 +66,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public float perimeter() {
+    public double perimeter() {
         return sideA+sideB+triangleBase;
     }
 
