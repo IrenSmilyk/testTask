@@ -2,19 +2,36 @@ package com.it;
 
 public class Triangle extends Shape {
     private double triangleBase;
-    private double triangleHeight;
+    private double heightHeldToBaseSide;
     private double leftSide;
     private double rightSide;
 
     public Triangle() {
     }
 
-    public Triangle(double triangleBase, double triangleHeight, double sideA, double sideB, ColorEnum figureColor) {
+    public Triangle(double triangleBase, double heightHeldToBaseSide, double leftSide, double rightSide, ColorEnum figureColor) {
         super(figureColor);
         this.triangleBase = triangleBase;
-        this.triangleHeight = triangleHeight;
-        this.leftSide = sideA;
-        this.rightSide = sideB;
+        this.heightHeldToBaseSide = heightHeldToBaseSide;
+        this.leftSide = leftSide;
+        this.rightSide = rightSide;
+    }
+
+    @Override
+    public void draw() {
+        System.out.printf("Shape: Triangle, area: %.2f sq.unit, left side: %.2f unit, right side: %.2f unit, base: %.2f unit, " +
+                        "color: %s, perimeter: %.2f, height: %.2f unit\n", getArea(), getLeftSide(), getRightSide(),
+                getTriangleBase(), getFigureColor(), getPerimeter(), getHeightHeldToBaseSide());
+    }
+
+    @Override
+    public double getArea() {
+        return 0.5 * triangleBase * heightHeldToBaseSide;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return leftSide + rightSide + triangleBase;
     }
 
     public double getTriangleBase() {
@@ -25,12 +42,12 @@ public class Triangle extends Shape {
         this.triangleBase = triangleBase;
     }
 
-    public double getTriangleHeight() {
-        return triangleHeight;
+    public double getHeightHeldToBaseSide() {
+        return heightHeldToBaseSide;
     }
 
-    public void setTriangleHeight(double triangleHeight) {
-        this.triangleHeight = triangleHeight;
+    public void setHeightHeldToBaseSide(double heightHeldToBaseSide) {
+        this.heightHeldToBaseSide = heightHeldToBaseSide;
     }
 
     public double getLeftSide() {
@@ -49,31 +66,13 @@ public class Triangle extends Shape {
         this.rightSide = rightSide;
     }
 
-
-    @Override
-    public void draw() {
-        System.out.println("This is a draw method for Triangle");
-    }
-
-    @Override
-    public double getArea() {
-        return 0.5f*triangleBase*triangleHeight;
-    }
-
-    @Override
-    public ColorEnum getFigureColor() {
-        return figureColor;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return leftSide + rightSide +triangleBase;
-    }
-
     @Override
     public String toString() {
-        return String.format("Shape: Triangle, area: %.2f sq.unit, leftSide: %.2f unit, rightSide: %.2f unit, sideC: %.2f unit," +
-                "color: %s, perimeter: %.2f, triangle height: %.2f", getArea(), getLeftSide(), getRightSide(),
-                getTriangleBase(), figureColor, getPerimeter(), getTriangleHeight());
+        return "Triangle{" +
+                "triangleBase=" + triangleBase +
+                ", heightHeldToBaseSide=" + heightHeldToBaseSide +
+                ", leftSide=" + leftSide +
+                ", rightSide=" + rightSide +
+                '}';
     }
 }

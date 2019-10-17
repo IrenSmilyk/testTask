@@ -1,12 +1,12 @@
 package com.it;
 
 public abstract class Shape {
-    ColorEnum figureColor;
+    private ColorEnum figureColor;
 
-    public Shape() {
+    protected Shape() {
     }
 
-    Shape(ColorEnum figureColor) {
+    protected Shape(ColorEnum figureColor) {
         this.figureColor = figureColor;
     }
 
@@ -14,9 +14,13 @@ public abstract class Shape {
 
     public abstract double getArea();
 
-    public abstract ColorEnum getFigureColor();
-
     public abstract double getPerimeter();
 
+    public ColorEnum getFigureColor(){
+        return figureColor;
+    }
 
+    public void setFigureColor(ColorEnum figureColor) {
+        this.figureColor = figureColor;
+    }
 }

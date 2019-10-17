@@ -9,54 +9,58 @@ class ShapesArray {
         int highLevelRandomValues = 20; // maximum number of shapes in an array
         int amountOfElements = rand.nextInt(highLevelRandomValues); //random number of shapes in an array
         Shape[] array = new Shape[amountOfElements]; // array of shapes
-        Shape shape = null;
+
         for (int i = 0; i < amountOfElements; i++) {
             int randomNumber = rand.nextInt(4); //random number for choosing the type of figure
             switch (randomNumber) {
                 case 0:
-                    shape = new Circle();
-                    getRandomColor(shape);
-                    ((Circle) shape).setRadius(getRandomDoubleValue(rand));
+                    Circle circle = new Circle();
+                    circle.setFigureColor(getRandomColor());
+                    circle.setRadius(getRandomDoubleValue(rand));
+                    array[i] = circle;
                     break;
                 case 1:
-                    shape = new Foursquare();
-                    getRandomColor(shape);
-                    ((Foursquare) shape).setSideFoursquare(getRandomDoubleValue(rand));
+                    Square foursquare = new Square();
+                    foursquare.setFigureColor(getRandomColor());
+                    foursquare.setSideSquare(getRandomDoubleValue(rand));
+                    array[i] = foursquare;
                     break;
                 case 2:
-                    shape = new Trapeze();
-                    getRandomColor(shape);
-                    ((Trapeze) shape).setUpperTrapeziumBase(getRandomDoubleValue(rand));
-                    ((Trapeze) shape).setLowerTrapeziumBase(getRandomDoubleValue(rand));
-                    ((Trapeze) shape).setLeftTrapezoidBase(getRandomDoubleValue(rand));
-                    ((Trapeze) shape).setRightTrapezoidBase(getRandomDoubleValue(rand));
-                    ((Trapeze) shape).setTrapezoidHeight(getRandomDoubleValue(rand));
+                    Trapeze trapeze = new Trapeze();
+                    trapeze.setFigureColor(getRandomColor());
+                    trapeze.setUpperTrapeziumBase(getRandomDoubleValue(rand));
+                    trapeze.setLowerTrapeziumBase(getRandomDoubleValue(rand));
+                    trapeze.setLeftTrapezoidBase(getRandomDoubleValue(rand));
+                    trapeze.setRightTrapezoidBase(getRandomDoubleValue(rand));
+                    trapeze.setTrapezoidHeight(getRandomDoubleValue(rand));
+                    array[i] = trapeze;
                     break;
                 case 3:
-                    shape = new Triangle();
-                    getRandomColor(shape);
-                    ((Triangle) shape).setLeftSide(getRandomDoubleValue(rand));
-                    ((Triangle) shape).setRightSide(getRandomDoubleValue(rand));
-                    ((Triangle) shape).setTriangleBase(getRandomDoubleValue(rand));
-                    ((Triangle) shape).setTriangleHeight(getRandomDoubleValue(rand));
+                    Triangle triangle = new Triangle();
+                    triangle.setFigureColor(getRandomColor());
+                    triangle.setLeftSide(getRandomDoubleValue(rand));
+                    triangle.setRightSide(getRandomDoubleValue(rand));
+                    triangle.setTriangleBase(getRandomDoubleValue(rand));
+                    triangle.setHeightHeldToBaseSide(getRandomDoubleValue(rand));
+                    array[i] = triangle;
                     break;
             }
-            array[i] = shape;
+
         }
         return array;
     }
 
-    void printArray(Shape[] array) {
-        for (Shape sh : array) {
-            System.out.println(sh);
-        }
+    private ColorEnum getRandomColor() {
+        return ColorEnum.values()[(int) (Math.random() * ColorEnum.values().length)];
     }
 
     private double getRandomDoubleValue(Random rand) {
-        return (rand.nextDouble() * 10000) / 100.0;
+        return (rand.nextDouble() * 100.0);
     }
 
-    private void getRandomColor(Shape shape) {
-        shape.figureColor = ColorEnum.values()[(int) (Math.random() * ColorEnum.values().length)];
+    void printArray(Shape[] array) {
+        for (Shape sh : array) {
+            sh.draw();
+        }
     }
 }

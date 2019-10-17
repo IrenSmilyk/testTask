@@ -7,24 +7,20 @@ public class Circle extends Shape {
     public Circle() {
     }
 
-    Circle(double radius, ColorEnum figureColor) {
+    public Circle(double radius, ColorEnum figureColor) {
         super(figureColor);
         this.radius = radius;
     }
 
     @Override
     public void draw() {
-        System.out.println("This is a draw method for Circle");
+        System.out.printf("Shape: Circle, area: %.2f sq.unit, radius: %.2f unit, color: %s, " +
+                "perimeter: %.2f\n", getArea(), getRadius(), getFigureColor(), getPerimeter());
     }
 
     @Override
     public double getArea() {
-        return radius * radius * PI;
-    }
-
-    @Override
-    public ColorEnum getFigureColor() {
-        return figureColor;
+        return PI * Math.pow(radius, 2);
     }
 
     @Override
@@ -42,8 +38,8 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return String.format("Shape: Circle, area: %.2f sq.unit, radius: %.2f unit, color: %s,"+
-                "perimeter: %.2f", getArea(), getRadius(), getFigureColor(), getPerimeter());
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
-
 }

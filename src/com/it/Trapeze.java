@@ -19,6 +19,24 @@ public class Trapeze extends Shape {
         this.lowerTrapeziumBase = lowerTrapeziumBase;
     }
 
+    @Override
+    public void draw() {
+        System.out.printf("Shape: Trapeze, area: %.2f sq.unit, upper base: %.2f unit, lower base: %.2f unit, left side: %.2f unit, " +
+                        "right base: %.2f unit, color: %s, perimeter: %.2f, height: %.2f unit, diagonal1: %.2f unit, diagonal2: %.2f unit\n",
+                getArea(), getUpperTrapeziumBase(), getLowerTrapeziumBase(), getLeftTrapezoidBase(), getRightTrapezoidBase(), getFigureColor(), getPerimeter(),
+                getTrapezoidHeight(), getDiagonal1(), getDiagonal2());
+    }
+
+    @Override
+    public double getArea() {
+        return 0.5 * (upperTrapeziumBase + lowerTrapeziumBase) * trapezoidHeight;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return leftTrapezoidBase + rightTrapezoidBase + upperTrapeziumBase + lowerTrapeziumBase;
+    }
+
     public double getLeftTrapezoidBase() {
         return leftTrapezoidBase;
     }
@@ -59,38 +77,22 @@ public class Trapeze extends Shape {
         this.lowerTrapeziumBase = lowerTrapeziumBase;
     }
 
-    @Override
-    public void draw() {
-        System.out.println("This is a draw method for Trapeze");
-    }
-
-    @Override
-    public double getArea() {
-        return 0.5f * (leftTrapezoidBase + rightTrapezoidBase) * trapezoidHeight;
-    }
-
-    @Override
-    public ColorEnum getFigureColor() {
-        return figureColor;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return leftTrapezoidBase + rightTrapezoidBase + upperTrapeziumBase + lowerTrapeziumBase;
-    }
-
     public double getDiagonal1() {
         return Math.sqrt(Math.pow(rightTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(rightTrapezoidBase, 2) - Math.pow(leftTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
     }
+
     public double getDiagonal2() {
         return Math.sqrt(Math.pow(leftTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(leftTrapezoidBase, 2) - Math.pow(rightTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
     }
 
     @Override
     public String toString() {
-        return String.format("Shape: Trapeze, area: %.2f sq.unit, upperTrapeziumBase: %.2f unit, lowerTrapeziumBase: %.2f unit, trapezoid baseB: %.2f unit," +
-                        "trapezoid baseA: %.2f unit, color: %s, perimeter: %.2f, trapezoid height: %.2f, diagonal1: %.2f, diagonal2: %.2f",
-                getArea(), getUpperTrapeziumBase(), getLowerTrapeziumBase(),getLeftTrapezoidBase(), getRightTrapezoidBase(), getFigureColor(), getPerimeter(),
-                getTrapezoidHeight(), getDiagonal1(), getDiagonal2());
+        return "Trapeze{" +
+                "leftTrapezoidBase=" + leftTrapezoidBase +
+                ", rightTrapezoidBase=" + rightTrapezoidBase +
+                ", trapezoidHeight=" + trapezoidHeight +
+                ", upperTrapeziumBase=" + upperTrapeziumBase +
+                ", lowerTrapeziumBase=" + lowerTrapeziumBase +
+                '}';
     }
 }
