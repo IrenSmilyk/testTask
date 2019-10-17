@@ -1,4 +1,6 @@
-package com.it;
+package com.it.figures;
+
+import com.it.ColorEnum;
 
 public class Triangle extends Shape {
     private double triangleBase;
@@ -20,17 +22,17 @@ public class Triangle extends Shape {
     @Override
     public void draw() {
         System.out.printf("Shape: Triangle, area: %.2f sq.unit, left side: %.2f unit, right side: %.2f unit, base: %.2f unit, " +
-                        "color: %s, perimeter: %.2f, height: %.2f unit\n", getArea(), getLeftSide(), getRightSide(),
-                getTriangleBase(), getFigureColor(), getPerimeter(), getHeightHeldToBaseSide());
+                        "color: %s, perimeter: %.2f, height: %.2f unit\n", area(), getLeftSide(), getRightSide(),
+                getTriangleBase(), getFigureColor(), perimeter(), getHeightHeldToBaseSide());
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return 0.5 * triangleBase * heightHeldToBaseSide;
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return leftSide + rightSide + triangleBase;
     }
 

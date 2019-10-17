@@ -1,4 +1,6 @@
-package com.it;
+package com.it.figures;
+
+import com.it.ColorEnum;
 
 public abstract class Shape {
     private ColorEnum figureColor;
@@ -12,9 +14,9 @@ public abstract class Shape {
 
     public abstract void draw();
 
-    public abstract double getArea();
+    public abstract double area();
 
-    public abstract double getPerimeter();
+    public abstract double perimeter();
 
     public ColorEnum getFigureColor(){
         return figureColor;

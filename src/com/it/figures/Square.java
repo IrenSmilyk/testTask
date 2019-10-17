@@ -1,4 +1,6 @@
-package com.it;
+package com.it.figures;
+
+import com.it.ColorEnum;
 
 public class Square extends Shape {
 
@@ -15,16 +17,16 @@ public class Square extends Shape {
     @Override
     public void draw() {
         System.out.printf("Shape: Square, area: %.2f sq.unit, side: %.2f unit, color: %s, perimeter: " +
-                "%.2f, diagonal: %.2f unit\n", getArea(), getSideSquare(), getFigureColor(), getPerimeter(), getDiagonal());
+                "%.2f, diagonal: %.2f unit\n", area(), getSideSquare(), getFigureColor(), perimeter(), diagonalSize());
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return Math.pow(sideSquare,2);
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return 4 * sideSquare;
     }
 
@@ -36,7 +38,7 @@ public class Square extends Shape {
         this.sideSquare = sideSquare;
     }
 
-    public double getDiagonal() {
+    public double diagonalSize() {
         return sideSquare * (float) (Math.sqrt(2));
     }
 

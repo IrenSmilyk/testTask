@@ -1,4 +1,6 @@
-package com.it;
+package com.it.figures;
+
+import com.it.ColorEnum;
 
 public class Circle extends Shape {
     private double radius;
@@ -15,16 +17,16 @@ public class Circle extends Shape {
     @Override
     public void draw() {
         System.out.printf("Shape: Circle, area: %.2f sq.unit, radius: %.2f unit, color: %s, " +
-                "perimeter: %.2f\n", getArea(), getRadius(), getFigureColor(), getPerimeter());
+                "perimeter: %.2f\n", area(), getRadius(), getFigureColor(), perimeter());
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return PI * Math.pow(radius, 2);
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return 2 * PI * radius;
     }
 

@@ -1,4 +1,6 @@
-package com.it;
+package com.it.figures;
+
+import com.it.ColorEnum;
 
 public class Trapeze extends Shape {
     private double leftTrapezoidBase;
@@ -23,17 +25,17 @@ public class Trapeze extends Shape {
     public void draw() {
         System.out.printf("Shape: Trapeze, area: %.2f sq.unit, upper base: %.2f unit, lower base: %.2f unit, left side: %.2f unit, " +
                         "right base: %.2f unit, color: %s, perimeter: %.2f, height: %.2f unit, diagonal1: %.2f unit, diagonal2: %.2f unit\n",
-                getArea(), getUpperTrapeziumBase(), getLowerTrapeziumBase(), getLeftTrapezoidBase(), getRightTrapezoidBase(), getFigureColor(), getPerimeter(),
-                getTrapezoidHeight(), getDiagonal1(), getDiagonal2());
+                area(), getUpperTrapeziumBase(), getLowerTrapeziumBase(), getLeftTrapezoidBase(), getRightTrapezoidBase(), getFigureColor(), perimeter(),
+                getTrapezoidHeight(), diagonal1Size(), diagonal2Size());
     }
 
     @Override
-    public double getArea() {
+    public double area() {
         return 0.5 * (upperTrapeziumBase + lowerTrapeziumBase) * trapezoidHeight;
     }
 
     @Override
-    public double getPerimeter() {
+    public double perimeter() {
         return leftTrapezoidBase + rightTrapezoidBase + upperTrapeziumBase + lowerTrapeziumBase;
     }
 
@@ -77,11 +79,11 @@ public class Trapeze extends Shape {
         this.lowerTrapeziumBase = lowerTrapeziumBase;
     }
 
-    public double getDiagonal1() {
+    public double diagonal1Size() {
         return Math.sqrt(Math.pow(rightTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(rightTrapezoidBase, 2) - Math.pow(leftTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
     }
 
-    public double getDiagonal2() {
+    public double diagonal2Size() {
         return Math.sqrt(Math.pow(leftTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(leftTrapezoidBase, 2) - Math.pow(rightTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
     }
 
