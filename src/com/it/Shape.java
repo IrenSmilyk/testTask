@@ -1,22 +1,22 @@
 package com.it;
 
 public abstract class Shape {
-    ColorEnum color;
+    ColorEnum figureColor;
 
     public Shape() {
     }
 
-    Shape(ColorEnum color) {
-        this.color = color;
+    Shape(ColorEnum figureColor) {
+        this.figureColor = figureColor;
     }
 
     public abstract void draw();
 
-    public abstract double area();
+    public abstract double getArea();
 
-    public abstract ColorEnum getColor();
+    public abstract ColorEnum getFigureColor();
 
-    public abstract double perimeter();
+    public abstract double getPerimeter();
 
 
 }

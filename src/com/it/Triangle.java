@@ -3,18 +3,18 @@ package com.it;
 public class Triangle extends Shape {
     private double triangleBase;
     private double triangleHeight;
-    private double sideA;
-    private double sideB;
+    private double leftSide;
+    private double rightSide;
 
     public Triangle() {
     }
 
-    public Triangle(double triangleBase, double triangleHeight, double sideA, double sideB, ColorEnum color) {
-        super(color);
+    public Triangle(double triangleBase, double triangleHeight, double sideA, double sideB, ColorEnum figureColor) {
+        super(figureColor);
         this.triangleBase = triangleBase;
         this.triangleHeight = triangleHeight;
-        this.sideA = sideA;
-        this.sideB = sideB;
+        this.leftSide = sideA;
+        this.rightSide = sideB;
     }
 
     public double getTriangleBase() {
@@ -33,20 +33,20 @@ public class Triangle extends Shape {
         this.triangleHeight = triangleHeight;
     }
 
-    public double getSideA() {
-        return sideA;
+    public double getLeftSide() {
+        return leftSide;
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
+    public void setLeftSide(double leftSide) {
+        this.leftSide = leftSide;
     }
 
-    public double getSideB() {
-        return sideB;
+    public double getRightSide() {
+        return rightSide;
     }
 
-    public void setSideB(double sideB) {
-        this.sideB = sideB;
+    public void setRightSide(double rightSide) {
+        this.rightSide = rightSide;
     }
 
 
@@ -56,23 +56,24 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return 0.5f*triangleBase*triangleHeight;
     }
 
     @Override
-    public ColorEnum getColor() {
-        return color;
+    public ColorEnum getFigureColor() {
+        return figureColor;
     }
 
     @Override
-    public double perimeter() {
-        return sideA+sideB+triangleBase;
+    public double getPerimeter() {
+        return leftSide + rightSide +triangleBase;
     }
 
     @Override
     public String toString() {
-        return String.format("Shape: Triangle, area: %.2f sq.unit, sideA: %.2f unit, sideB: %.2f unit, sideC: %.2f unit," +
-                " color: %s, perimeter: %.2f, triangle height: %.2f", area(), getSideA(), getSideB(), getTriangleBase(), color, perimeter(), getTriangleHeight());
+        return String.format("Shape: Triangle, area: %.2f sq.unit, leftSide: %.2f unit, rightSide: %.2f unit, sideC: %.2f unit," +
+                "color: %s, perimeter: %.2f, triangle height: %.2f", getArea(), getLeftSide(), getRightSide(),
+                getTriangleBase(), figureColor, getPerimeter(), getTriangleHeight());
     }
 }

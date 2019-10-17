@@ -2,14 +2,14 @@ package com.it;
 
 public class Foursquare extends Shape {
 
-    private double sideA;
+    private double sideFoursquare;
 
     public Foursquare() {
     }
 
-    public Foursquare(double sideA, ColorEnum color) {
-        super(color);
-        this.sideA = sideA;
+    public Foursquare(double sideFoursquare, ColorEnum figureColor) {
+        super(figureColor);
+        this.sideFoursquare = sideFoursquare;
     }
 
     @Override
@@ -18,35 +18,36 @@ public class Foursquare extends Shape {
     }
 
     @Override
-    public double area() {
-        return sideA * sideA;
+    public double getArea() {
+        return sideFoursquare * sideFoursquare;
     }
 
     @Override
-    public ColorEnum getColor() {
-        return color;
+    public ColorEnum getFigureColor() {
+        return figureColor;
     }
 
-    public double getSideA() {
-        return sideA;
+    public double getSideFoursquare() {
+        return sideFoursquare;
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
+    public void setSideFoursquare(double sideFoursquare) {
+        this.sideFoursquare = sideFoursquare;
     }
 
     @Override
-    public double perimeter() {
-        return 4 * sideA;
+    public double getPerimeter() {
+        return 4 * sideFoursquare;
     }
 
     public double getDiagonal() {
-        return sideA * (float) (Math.sqrt(2));
+        return sideFoursquare * (float) (Math.sqrt(2));
     }
 
     @Override
     public String toString() {
-        return String.format("Shape: Foursquare, area: %.2f sq.unit, side: %.2f unit, color: %s, perimeter: %.2f, diagonal: %.2f unit", area(), getSideA(), color, perimeter(), getDiagonal());
+        return String.format("Shape: Foursquare, area: %.2f sq.unit, side: %.2f unit, color: %s, perimeter:"+
+                "%.2f, diagonal: %.2f unit", getArea(), getSideFoursquare(), getFigureColor(), getPerimeter(), getDiagonal());
     }
 
 }

@@ -1,38 +1,38 @@
 package com.it;
 
 public class Trapeze extends Shape {
-    private double trapezoidBaseA;
-    private double trapezoidBaseB;
+    private double leftTrapezoidBase;
+    private double rightTrapezoidBase;
     private double trapezoidHeight;
-    private double sideA;
-    private double sideB;
+    private double upperTrapeziumBase;
+    private double lowerTrapeziumBase;
 
     public Trapeze() {
     }
 
-    public Trapeze(double trapezoidBaseA, double trapezoidBaseB, double trapezoidHeight, double sideA, double sideB, ColorEnum color) {
-        super(color);
-        this.trapezoidBaseA = trapezoidBaseA;
-        this.trapezoidBaseB = trapezoidBaseB;
+    public Trapeze(double leftTrapezoidBase, double rightTrapezoidBase, double trapezoidHeight, double upperTrapeziumBase, double lowerTrapeziumBase, ColorEnum figureColor) {
+        super(figureColor);
+        this.leftTrapezoidBase = leftTrapezoidBase;
+        this.rightTrapezoidBase = rightTrapezoidBase;
         this.trapezoidHeight = trapezoidHeight;
-        this.sideA = sideA;
-        this.sideB = sideB;
+        this.upperTrapeziumBase = upperTrapeziumBase;
+        this.lowerTrapeziumBase = lowerTrapeziumBase;
     }
 
-    public double getTrapezoidBaseA() {
-        return trapezoidBaseA;
+    public double getLeftTrapezoidBase() {
+        return leftTrapezoidBase;
     }
 
-    public void setTrapezoidBaseA(double trapezoidBaseA) {
-        this.trapezoidBaseA = trapezoidBaseA;
+    public void setLeftTrapezoidBase(double leftTrapezoidBase) {
+        this.leftTrapezoidBase = leftTrapezoidBase;
     }
 
-    public double getTrapezoidBaseB() {
-        return trapezoidBaseB;
+    public double getRightTrapezoidBase() {
+        return rightTrapezoidBase;
     }
 
-    public void setTrapezoidBaseB(double trapezoidBaseB) {
-        this.trapezoidBaseB = trapezoidBaseB;
+    public void setRightTrapezoidBase(double rightTrapezoidBase) {
+        this.rightTrapezoidBase = rightTrapezoidBase;
     }
 
     public double getTrapezoidHeight() {
@@ -43,20 +43,20 @@ public class Trapeze extends Shape {
         this.trapezoidHeight = trapezoidHeight;
     }
 
-    public double getSideA() {
-        return sideA;
+    public double getUpperTrapeziumBase() {
+        return upperTrapeziumBase;
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
+    public void setUpperTrapeziumBase(double upperTrapeziumBase) {
+        this.upperTrapeziumBase = upperTrapeziumBase;
     }
 
-    public double getSideB() {
-        return sideB;
+    public double getLowerTrapeziumBase() {
+        return lowerTrapeziumBase;
     }
 
-    public void setSideB(double sideB) {
-        this.sideB = sideB;
+    public void setLowerTrapeziumBase(double lowerTrapeziumBase) {
+        this.lowerTrapeziumBase = lowerTrapeziumBase;
     }
 
     @Override
@@ -65,24 +65,32 @@ public class Trapeze extends Shape {
     }
 
     @Override
-    public double area() {
-        return 0.5f * (trapezoidBaseA + trapezoidBaseB) * trapezoidHeight;
+    public double getArea() {
+        return 0.5f * (leftTrapezoidBase + rightTrapezoidBase) * trapezoidHeight;
     }
 
     @Override
-    public ColorEnum getColor() {
-        return color;
+    public ColorEnum getFigureColor() {
+        return figureColor;
     }
 
     @Override
-    public double perimeter() {
-        return trapezoidBaseA + trapezoidBaseB + sideA + sideB;
+    public double getPerimeter() {
+        return leftTrapezoidBase + rightTrapezoidBase + upperTrapeziumBase + lowerTrapeziumBase;
+    }
+
+    public double getDiagonal1() {
+        return Math.sqrt(Math.pow(rightTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(rightTrapezoidBase, 2) - Math.pow(leftTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
+    }
+    public double getDiagonal2() {
+        return Math.sqrt(Math.pow(leftTrapezoidBase, 2) + upperTrapeziumBase * lowerTrapeziumBase - ((lowerTrapeziumBase * (Math.pow(leftTrapezoidBase, 2) - Math.pow(rightTrapezoidBase, 2))) / lowerTrapeziumBase - upperTrapeziumBase));
     }
 
     @Override
     public String toString() {
-        return String.format("Shape: Trapeze, area: %.2f sq.unit, sideA: %.2f unit, sideB: %.2f unit, trapezoid baseB: %.2f unit," +
-                " trapezoid baseA: %.2f unit, color: %s, perimeter: %.2f, trapezoid height: %.2f", area(), getSideA(), getSideB(),
-                getTrapezoidBaseA(), getTrapezoidBaseB(), color, perimeter(), getTrapezoidHeight());
+        return String.format("Shape: Trapeze, area: %.2f sq.unit, upperTrapeziumBase: %.2f unit, lowerTrapeziumBase: %.2f unit, trapezoid baseB: %.2f unit," +
+                        "trapezoid baseA: %.2f unit, color: %s, perimeter: %.2f, trapezoid height: %.2f, diagonal1: %.2f, diagonal2: %.2f",
+                getArea(), getUpperTrapeziumBase(), getLowerTrapeziumBase(),getLeftTrapezoidBase(), getRightTrapezoidBase(), getFigureColor(), getPerimeter(),
+                getTrapezoidHeight(), getDiagonal1(), getDiagonal2());
     }
 }
